@@ -1,0 +1,132 @@
+<html>
+
+<head>
+    <!-- for optimal display on high DPI devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin/index.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+   
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- the viewer container must have a defined size -->
+    <div id="viewer" style="width: 100vw; height: 100vh;"></div>
+    
+
+
+    <script type="text/template" id="com">
+        <div class='alert alert-info'>คณะวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์</div>
+        <img src='img/com.jpg' width="100%">
+        <div>
+       
+        </div>
+    </script>
+
+    <script type="text/template" id="chem">
+        <div class='alert alert-info'>คณะวิศวกรรมศาสตร์ สาขาเคมี</div>
+        <img src='img/chem.jpg' width="100%"> 
+        <div>
+       
+        </div>
+    </script>
+
+
+    <script type="text/template" id="canteenmd">
+        <div class='alert alert-info'>โรงอาหารหอพักนักศึกษาคณะแพทย์</div>
+        <img src='img/canteen.jpg' width="100%">  
+        <div>
+       
+        </div>
+    </script>
+
+    <script type="text/template" id="dent">
+        <div class='alert alert-info'>หอพักนักศึกษาคณะแพทย์</div>
+        <img src='img/dent.jpg' width="100%" > 
+        <div>
+       
+        </div>
+    </script>
+
+
+    <script type="text/template" id="ph">
+        <div class='alert alert-info'>คณะสาธารณสุขศาสตร์</div>
+        <img src='img/ph.jpg' width="100%"> 
+        <div>
+       
+        </div>
+    </script>
+
+    <script>
+        const viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector('#viewer'),
+            panorama: 'img/sata.jpg',
+            useXmpData: true,
+            plugins: [
+                [PhotoSphereViewer.MarkersPlugin, {
+                    markers: [
+                        {
+                            id: 'm1',
+                            position: { yaw: '-165deg', pitch: '5deg' },
+                            imageLayer: 'img/placeholder.png',
+                            size: { width: 463*0.2, height: 507*0.2 },
+                            tooltip:"<div class='alert alert-info'>โรงอาหารคณะแพทย์</div>",
+                            content:document.getElementById("canteenmd").innerHTML,
+                        },    
+                        {
+                            id: 'm2',
+                            position: { yaw: '-135deg', pitch: '10deg' },
+                            imageLayer: 'img/placeholder.png',
+                            size: { width: 463*0.2, height: 507*0.2 },
+                            tooltip:"<div class='alert alert-info'>หอพักนักศึกษาคณะแพทย์</div>",
+                            content:document.getElementById("dent").innerHTML,
+                        },             
+                        {
+                            id: 'm3',
+                            position: { yaw: '-20deg', pitch: '7deg' },
+                            imageLayer: 'img/placeholder.png',
+                            size: { width: 463*0.2, height: 507*0.2 },
+                            tooltip:"<div class='alert alert-info'>คณะวิศวกรรมศาสตร์ สาขาเคมี</div>",
+                            content:document.getElementById("chem").innerHTML,
+                        },                                         
+                        {
+                            id: 'm4',
+                            position: { yaw: '400deg', pitch: '10deg' },
+                            imageLayer: 'img/placeholder.png',
+                            size: { width: 463*0.2, height: 507*0.2 },
+                            tooltip:"<div class='alert alert-info'>คณะวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์</div>",
+                            content:document.getElementById("com").innerHTML,
+                        },         
+
+                        {
+                            id: 'm5',
+                            position: { yaw: '-210deg', pitch: '10deg' },
+                            imageLayer: 'img/placeholder.png',
+                            size: { width: 463*0.2, height: 507*0.2 },
+                            tooltip:"<div class='alert alert-info'>คณะสาธารณสุขศาสตร์</div>",
+                            content:document.getElementById("ph").innerHTML,
+                        },     
+                        
+                        {
+                            id: 'm6',
+                            position:  { yaw: '-55deg', pitch: '0deg' },
+                            imageLayer: 'img/arrowhead1.png',
+                            size: { width: 463*0.2, height: 507*0.2 },
+                            
+                           
+                        },
+                    ],
+                }],
+            ],
+
+        });
+    </script>
+</body>
+
+</html>
